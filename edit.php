@@ -31,7 +31,7 @@
     <table class="table">
         <tr>
             <td>
-                bookcode
+                Book Code
             </td>
             <td>
                 <input type="text" class="form-control"name="getbookcode">
@@ -54,35 +54,36 @@
 <?php
 if(isset($_GET["submit"]))
 {
-$bookcode=$_GET["getbookcode"];
-$Servername="localhost";
-$Dbusername="root";
-$Dbpassword="";
-$Dbname="mydatabase";
-$connection=new mysqli($Servername,$Dbusername,$Dbpassword,$Dbname);
-$sql="SELECT  `booktitle`, `author`, `description`, `price`, `publisher` FROM `bookdetails` WHERE `bookcode`=$bookcode";
-$result=$connection->query($sql);
-if($result->num_rows>0)
-{
-    while($row=$result->fetch_assoc())
+    $bookcode=$_GET["getbookcode"];
+    $Servername="localhost";
+    $Dbusername="root";
+    $Dbpassword="";
+    $Dbname="mydb2";
+    $connection=new mysqli($Servername,$Dbusername,$Dbpassword,$Dbname);
+    $sql="SELECT  `booktitle`, `author`, `description`, `price`, `publisher` FROM `bookdetails` WHERE `bookcode`=$bookcode";
+    $result=$connection->query($sql);
+    if($result->num_rows>0)
     {
-        $booktitle=$row["booktitle"];
-        $author=$row["author"];
-        $description=$row["description"];
-        $price=$row["price"];
-        $publisher=$row["publisher"];
-
-        echo "<form method='POST'><table class='table'> <tr> <td> booktitle</td> <td> <input type='text'name='updatetitle' value='$booktitle'/> </td> </tr>
-        <tr> <td> author </td> <td><input type='text'name='updateauthor' value='$author' </td> </tr>
-        <tr> <td> description </td> <td> <input type='text'name='updatedescription' value='$description'</td> </tr>
-        <tr><td>price</td><td><input type='text'name='updateprice'value='$price'</td></tr>
-        <tr><td>publisher</td><td><input type='text'name='updatepublisher'value='$publisher</td></tr>
-        <tr><td><button type='submit' value='$bookcode' name='updatebutton' class='btn btn-success'/>update</button> <br> </form>";
+        while($row=$result->fetch_assoc())
+        {
+            $booktitle=$row["booktitle"];
+            $author=$row["author"];
+            $description=$row["description"];
+            $price=$row["price"];
+            $publisher=$row["publisher"];
+    
+            echo "<form method='POST'><table class='table'> <tr> <td> booktitle</td> <td> <input type='text'name='updatetitle' value='$booktitle'/> </td> </tr>
+            <tr> <td> author </td> <td><input type='text'name='updateauthor' value='$author' </td> </tr>
+            <tr> <td> description </td> <td> <input type='text'name='updatedescription' value='$description'</td> </tr>
+            <tr><td>price</td><td><input type='text'name='updateprice'value='$price'</td></tr>
+            <tr><td>publisher</td><td><input type='text'name='updatepublisher'value='$publisher'</td></tr>
+            <tr><td><button type='submit' value='$bookcode' name='updatebutton' class='btn btn-success'/>update</button> </td></tr><br> </form>";    
+        }
     }
-}
-else{
-    echo "invalid";
-}
+    else{
+        echo "invalid";
+    }
+
 }
 if(isset($_POST["updatebutton"]))
 {
@@ -97,7 +98,7 @@ if(isset($_POST["updatebutton"]))
     $Dbpassword="";
     $Dbname="mydb2";
     $connection=new mysqli($Servername,$Dbusername,$Dbpassword,$Dbname);
-    $sql="UPDATE `bookdetails` SET `booktitle`= '$uptitle',`author`='$upauthor',`description`='$updescription',`price`= $upprice,`publisher`=$uppublisher WHERE `bookcode`=$bkcode";
+    $sql="UPDATE `bookdetails` SET `booktitle`='$uptitle',`author`='$upauthor',`description`='$updescription',`price`= $upprice,`publisher`='$uppublisher' WHERE `bookcode`=$bkcode";
     $result=$connection->query($sql);
     if($result===TRUE)
     {
@@ -106,5 +107,6 @@ if(isset($_POST["updatebutton"]))
     else{
         echo "error";
     }
+
 }
 ?>

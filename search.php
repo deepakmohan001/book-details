@@ -32,7 +32,7 @@
    <table class="table">
        <tr>
            <td>
-               book title
+               Book Title
            </td>
            <td>
                <input type="text"class="form-control"name="getbooktitle">

@@ -39,7 +39,7 @@
 
           </td>
           <td>
-          <button name="submit"class="btn btn-danger">delete</button>
+          <button type="submit" name="getsubmit"class="btn btn-danger">delete</button>
           </td>
           </tr>
           </table>
@@ -47,7 +47,7 @@
 </body>
 </html>
 <?php
-if(isset($_GET["getSubmit"]))
+if(isset($_GET["getsubmit"]))
 {
     $bookcode=$_GET["getbookcode"];
     $ServerName="localhost";
