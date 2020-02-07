@@ -28,7 +28,7 @@
        Search
    </h1> 
    <br>
-   <form method="GET">
+   <form method="POST">
    <table class="table">
        <tr>
            <td>
@@ -54,9 +54,9 @@
 </body>
 </html>
 <?php
-if(isset($_GET["submit"]))
+if(isset($_POST["submit"]))
 {
-    $booktitle=$_GET["getbooktitle"];
+    $booktitle=$_POST["getbooktitle"];
     $Servername="localhost";
 $Dbusername="root";
 $Dbpassword="";

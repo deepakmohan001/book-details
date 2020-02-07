@@ -89,14 +89,14 @@
 </body>
 </html>
 <?php
-if(isset($_GET["submit"]))
+if(isset($_POST["submit"]))
 {
-    $bookcode=$_GET["getbookcode"];
-    $booktitle=$_GET["getbooktitle"];
-    $author=$_GET["getauthor"];
-    $description=$_GET["getdescription"];
-    $price=$_GET["getprice"];
-    $publisher=$_GET["getpublisher"];
+    $bookcode=$_POST["getbookcode"];
+    $booktitle=$_POST["getbooktitle"];
+    $author=$_POST["getauthor"];
+    $description=$_POST["getdescription"];
+    $price=$_POST["getprice"];
+    $publisher=$_POST["getpublisher"];
     $Servername="localhost";
     $Dbusername="root";
     $Dbpassword="";

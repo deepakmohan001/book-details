@@ -24,7 +24,7 @@
           </li>
         </ul>
       </nav>     
-      <form method="GET">
+      <form method="POST">
       <table class="table">
           <tr>
               <td>
@@ -47,9 +47,9 @@
 </body>
 </html>
 <?php
-if(isset($_GET["getsubmit"]))
+if(isset($_POST["getsubmit"]))
 {
-    $bookcode=$_GET["getbookcode"];
+    $bookcode=$_POST["getbookcode"];
     $ServerName="localhost";
     $DbUserName="root";
     $DbPassword="";
